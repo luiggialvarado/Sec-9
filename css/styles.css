@@ -301,6 +301,18 @@ address {
   margin-bottom: var(--espacio-xs);
 }
 
+/* Icono y texto en fila, alineados; inline-flex ocupa solo lo que mide el contenido */
+.enlace-github {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+}
+
+/* Contorno claro con el teclado: el pie es oscuro y el contorno por defecto se pierde */
+.pie a:focus-visible {
+  outline-color: var(--color-hormigon);
+}
+
 /* ---------- Botón de volver arriba ---------- */
 /* Desplazamiento suave, salvo si el usuario ha pedido menos movimiento */
 @media (prefers-reduced-motion: no-preference) {

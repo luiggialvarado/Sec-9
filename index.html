@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motor Norte | Deportivos en Barcelona</title>
+    <meta
+      name="description"
+      content="Motor Norte, concesionario de deportivos en el Poblenou, Barcelona."
+    />
+
+    <!-- Fuente Barlow desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header id="inicio" class="cabecera">
+      <div class="contenedor cabecera-interior">
+        <a href="#inicio" class="logo">Motor Norte</a>
+        <nav aria-label="Menú principal">
+          <ul class="menu">
+            <li><a href="#presentacion">Presentación</a></li>
+            <li><a href="#coches">Coches</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="presentacion" class="seccion presentacion">
+        <div class="contenedor presentacion-interior">
+          <h1>Deportivos con historia, en Barcelona</h1>
+          <p>
+            En Motor Norte tenemos pocos coches y los conocemos bien. Cada uno
+            pasa por nuestro taller del Poblenou antes de entrar en exposición.
+            Puedes venir a verlos, sentarte dentro y preguntarnos lo que
+            quieras.
+          </p>
+        </div>
+      </section>
+
+      <!-- La doble línea amarilla de la carretera -->
+      <hr class="doble-linea" />
+
+      <section id="coches" class="seccion">
+        <div class="contenedor">
+          <h2>En exposición ahora</h2>
+
+          <div class="coches-lista">
+            <article class="coche">
+              <div class="coche-marco">
+              <img
+                src="img/coche-1.jpg"
+                alt="Porsche 911 de circuito, negro con llantas rojas, aparcado junto a un muro blanco"
+                class="coche-foto coche-foto-1"
+                width="960"
+                height="1200"
+              />
+              </div>
+              <h3>Porsche 911 de circuito</h3>
+              <p>
+                Pensado para rodar en pista: alerón trasero regulable, jaula de
+                seguridad y asientos de competición. No está homologado para
+                circular por carretera.
+              </p>
+            </article>
+
+            <article class="coche">
+              <div class="coche-marco">
+              <img
+                src="img/coche-2.jpg"
+                alt="BMW M4 coupé negro con alerón trasero, fotografiado en un estudio oscuro"
+                class="coche-foto coche-foto-2"
+                width="685"
+                height="1200"
+              />
+              </div>
+              <h3>BMW M4 Coupé</h3>
+              <p>
+                Seis cilindros en línea, tracción trasera y piezas aerodinámicas
+                de fibra de carbono. Sirve para el día a día y para una
+                carretera de curvas.
+              </p>
+            </article>
+
+            <article class="coche">
+              <div class="coche-marco">
+              <img
+                src="img/coche-3.jpg"
+                alt="Audi R8 gris mate visto desde atrás, en una carretera de montaña al atardecer"
+                class="coche-foto"
+                width="1200"
+                height="801"
+              />
+              </div>
+              <h3>Audi R8 V10</h3>
+              <p>
+                Motor V10 atmosférico en posición central y tracción total
+                quattro. Este lleva vinilo gris mate y llantas forjadas en negro
+                y bronce.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="seccion">
+        <div class="contenedor contacto-interior">
+          <div class="contacto-datos">
+            <h2>Contacto</h2>
+            <p>
+              Escríbenos o pásate por el local. Te respondemos en un día
+              laborable.
+            </p>
+
+            <address>
+              Carrer de Pujades, 155<br />
+              08005 Barcelona<br />
+              <a href="tel:+34933018274">933 018 274</a><br />
+              <a href="mailto:hola@motornorte.es">hola@motornorte.es</a>
+            </address>
+
+            <p class="horario">
+              De lunes a viernes, de 9:30 a 14:00 y de 16:00 a 20:00.<br />
+              Sábados, de 10:00 a 14:00.
+            </p>
+          </div>
+
+          <!--  El formulario solo se ve, no envía nada -->
+          <form class="formulario">
+            <div class="campo">
+              <label for="nombre">Nombre:</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="campo">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tu@email.com"
+                required
+              />
+            </div>
+
+            <div class="campo">
+              <label for="mensaje">Mensaje:</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Escribe tu mensaje aquí..."
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit">Enviar mensaje</button>
+
+            <!-- Aquí aparece la confirmación; role="status" hace que el lector de pantalla la lea -->
+            <p class="formulario-aviso" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <p>&copy; 2026 Motor Norte, Barcelona.</p>
+        <p>
+          Proyecto de clase: el concesionario es inventado. Fotos de Unsplash.
+        </p>
+      </div>
+    </footer>
+
+    <a href="#inicio" class="volver-arriba" aria-label="Volver arriba"
+      >&uarr;</a
+    >
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+/* ==========================================================
+   Motor Norte - estilos
+   Orden: variables, base, cabecera, secciones, coches,
+   contacto, pie y medidas para tablet y escritorio.
+   ========================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+  /* Colores sacados de las fotos */
+  --color-hormigon: #e4e6e2;
+  --color-grafito: #1f2226;
+  --color-gris-senal: #565b61;
+  --color-asfalto: #2a2d32;
+  --color-amarillo: #e9b72f;
+  --color-amarillo-oscuro: #d9a41c; /* hover de los botones amarillos */
+
+  /* Fuentes */
+  --fuente-titulos: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --fuente-texto: "Barlow", Arial, sans-serif;
+
+  /* Espaciados en múltiplos de 8px */
+  --espacio-xs: 0.5rem;
+  --espacio-s: 1rem;
+  --espacio-m: 1.5rem;
+  --espacio-l: 2rem;
+  --espacio-xl: 4rem;
+  --espacio-xxl: 6rem;
+
+  --ancho-maximo: 72rem;
+  --radio: 3px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-hormigon);
+  color: var(--color-grafito);
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 var(--espacio-s);
+}
+
+h2 {
+  font-size: clamp(2.25rem, 1.75rem + 2vw, 3.25rem);
+  margin-bottom: var(--espacio-l);
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: var(--espacio-s);
+  margin-bottom: var(--espacio-xs);
+}
+
+p {
+  margin: 0 0 var(--espacio-s);
+  max-width: 38rem; /* líneas de menos de 80 caracteres */
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+/* Contorno visible al navegar con el teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-grafito);
+  outline-offset: 3px;
+}
+
+/* Centra el contenido y deja margen a los lados */
+.contenedor {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 var(--espacio-s);
+}
+
+.seccion {
+  padding: var(--espacio-xl) 0;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera-interior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espacio-xs) var(--espacio-l);
+  padding-top: var(--espacio-m);
+  padding-bottom: var(--espacio-m);
+}
+
+.logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap; /* en pantallas muy estrechas los enlaces bajan de línea */
+  gap: var(--espacio-xs) var(--espacio-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.menu a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Presentación ---------- */
+.presentacion {
+  padding-top: var(--espacio-l);
+  background-color: var(--color-grafito);
+  color: var(--color-hormigon);
+}
+
+.presentacion h1 {
+  font-size: clamp(3rem, 1.5rem + 7vw, 6.5rem);
+  line-height: 0.95;
+  margin-bottom: var(--espacio-m);
+}
+
+.presentacion p {
+  font-size: 1.1875rem;
+}
+
+.presentacion-interior {
+  --faro-x: 30%;
+  --faro-y: 50%;
+  --faro-radio: 260px;
+  -webkit-mask-image: radial-gradient(circle var(--faro-radio) at var(--faro-x) var(--faro-y), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 100%);
+  mask-image: radial-gradient(circle var(--faro-radio) at var(--faro-x) var(--faro-y), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Doble línea amarilla - carretera */
+.doble-linea {
+  height: 40px;
+  margin: 0;
+  border: 0;
+  border-top: 6px solid var(--color-amarillo);
+  border-bottom: 6px solid var(--color-amarillo);
+  background-color: var(--color-asfalto);
+  background-image: linear-gradient(90deg, var(--color-hormigon) 50%, transparent 50%);
+  background-size: 80px 4px;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+}
+
+@keyframes carretera {
+  from { background-position: 0 50%; }
+  to { background-position: 80px 50%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .doble-linea {
+    animation: carretera 1s linear infinite;
+  }
+}
+
+/* ---------- Coches ---------- */
+.coche-marco {
+  --inclinar-x: 0deg;
+  --inclinar-y: 0deg;
+  perspective: 1000px;
+}
+.coches-lista {
+  display: grid;
+  gap: var(--espacio-xl);
+}
+
+.coche p {
+  color: var(--color-gris-senal);
+}
+
+/* Todas las fotos con la misma forma; cada una recortada donde está el coche */
+.coche-foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radio);
+  transform: rotateX(var(--inclinar-x)) rotateY(var(--inclinar-y));
+  transition: transform 0.15s ease-out;
+}
+
+.coche-foto-1 {
+  object-position: center 85%;
+}
+
+.coche-foto-2 {
+  object-position: center 55%;
+}
+
+/* ---------- Contacto ---------- */
+.contacto-interior {
+  display: grid;
+  gap: var(--espacio-xl);
+}
+
+address {
+  font-style: normal;
+  margin-bottom: var(--espacio-s);
+}
+
+.horario {
+  color: var(--color-gris-senal);
+}
+
+/* Campos del formulario */
+.formulario .campo {
+  margin-bottom: var(--espacio-m);
+}
+
+.formulario label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--espacio-xs);
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--color-asfalto);
+  border-radius: var(--radio);
+  background-color: #fff;
+  color: var(--color-grafito);
+  font: inherit;
+}
+
+.formulario textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.formulario button {
+  padding: 0.875rem var(--espacio-l);
+  border: 0;
+  border-radius: var(--radio);
+  background-color: var(--color-amarillo);
+  color: var(--color-grafito);
+  font-family: var(--fuente-titulos);
+  font-size: 1.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.formulario button:hover {
+  background-color: var(--color-amarillo-oscuro);
+}
+
+/* Mensaje de confirmación: vacío hasta que JS escribe en él */
+.formulario-aviso {
+  margin-top: var(--espacio-s);
+  font-weight: 600;
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  padding: var(--espacio-l) 0;
+  background-color: var(--color-asfalto);
+  color: var(--color-hormigon);
+  font-size: 0.9375rem;
+}
+
+.pie p {
+  margin-bottom: var(--espacio-xs);
+}
+
+/* ---------- Botón de volver arriba ---------- */
+/* Desplazamiento suave, salvo si el usuario ha pedido menos movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Círculo amarillo fijo en la esquina, oculto hasta que JS añade .visible */
+.volver-arriba {
+  position: fixed;
+  bottom: var(--espacio-m);
+  right: var(--espacio-m);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-amarillo);
+  color: var(--color-grafito);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.volver-arriba.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.volver-arriba:hover {
+  background-color: var(--color-amarillo-oscuro);
+  transform: scale(1.1);
+}
+
+/* ---------- Tablet (768px o más) ---------- */
+@media (min-width: 48rem) {
+  .contenedor {
+    padding: 0 var(--espacio-l);
+  }
+
+  .seccion {
+    padding: var(--espacio-xxl) 0;
+  }
+
+  .coches-lista {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacio-xl) var(--espacio-l);
+  }
+
+  /* El Audi es la única foto horizontal: ocupa las dos columnas */
+  .coche:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .coche:nth-child(3) .coche-foto {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ---------- Escritorio (1024px o más) ---------- */
+@media (min-width: 64rem) {
+  .presentacion-interior {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+    align-items: end;
+    gap: var(--espacio-xl);
+  }
+
+  .presentacion-interior h1 {
+    margin-bottom: 0;
+  }
+
+  .coches-lista {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+
+  /* La tarjeta del medio baja un poco, como coches aparcados sin alinear */
+  .coche:nth-child(2) {
+    margin-top: var(--espacio-xl);
+  }
+
+  .coche:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .coche:nth-child(3) .coche-foto {
+    aspect-ratio: 4 / 3;
+  }
+
+  .contacto-interior {
+    grid-template-columns: 2fr 3fr;
+  }
+}
